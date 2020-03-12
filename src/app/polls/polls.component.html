@@ -1,0 +1,51 @@
+<div class="container-fluid">
+
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Encuestas</li>
+      </ol>
+    </nav>
+  
+    <div class="row">
+  
+      <div class="col-sm-12 form-group text-right">
+        <button type="button" class="btn btn-success btn-sm" [routerLink]="'/create-poll'">Responder encuesta</button>
+      </div>
+  
+      <div class="col-sm-12">
+  
+        <table class="table table-bordered table-sm">
+  
+          <thead class="thead-dark">
+            <tr>
+              <th>Numero de documento</th>
+              <th>Email</th>
+              <th>Comentarios</th>
+              <th>Marca PC</th>
+              <th>Fecha de respuesta</th>
+              <th>Opciones</th>
+            </tr>
+          </thead>
+  
+          <tbody *ngFor="let poll of pollsArray">
+  
+            <tr>
+              <td>{{poll.documentNumber}}</td>
+              <td>{{poll.email}}</td>
+              <td>{{poll.comments}}</td>
+              <td>{{poll.markPc}}</td>
+              <td>{{poll.answerDate}}</td>
+              <td>
+                  <a (click)="updatePollByState(poll.id);" class="btn btn-danger">Descartar</a>
+              </td>
+            </tr>
+  
+          </tbody>
+  
+        </table>
+  
+        </div>
+  
+    </div>
+  </div>
+  

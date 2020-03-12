@@ -6,11 +6,17 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
+import { CreatePollComponent } from './create-poll/create-poll.component';
+import { PollsComponent } from './polls/polls.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    LoginComponent,
+    CreatePollComponent,
+    PollsComponent
   ],
   imports: [
     BrowserModule,

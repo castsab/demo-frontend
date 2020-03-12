@@ -1,0 +1,60 @@
+<div class="container  mt-2">
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">Responder encuesta</li>
+        </ol>
+    </nav>
+
+    <form class="myform" [formGroup]="myform">
+
+        <div class="form-row mt-2">
+
+            <div class="col">
+                <input formControlName="documentNumber" type="text" class="form-control"
+                    placeholder="Numero de documento">
+                <div *ngIf="documentNumber.invalid && documentNumber.dirty || formValid==true">
+                    <span *ngIf="documentNumber.errors?.required">Este campo es requerido</span>
+                </div>
+                <div *ngIf="documentNumber.invalid && documentNumber.dirty || formValid==true">
+                    <span *ngIf="documentNumber.errors?.pattern">Solo numeros</span>
+                </div>
+            </div>
+
+            <div class="col">
+                <input formControlName="email" type="text" class="form-control" placeholder="email">
+
+                <div *ngIf="email.invalid && email.dirty || formValid==true">
+                    <span *ngIf="email.errors?.required">Este campo es requerido</span>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="form-row mt-2">
+            <div class="col">
+                <input formControlName="comments" type="text" class="form-control" id="comments"
+                    placeholder="Comentarios">
+
+                <div *ngIf="comments.invalid && comments.dirty || formValid==true">
+                    <span *ngIf="comments.errors?.required">Este campo es requerido</span>
+                </div>
+            </div>
+
+            <div class="col">
+                <select formControlName="markPc" class="form-control">
+                    <option value="1">ASUS</option>
+                    <option value="2">Lenovo</option>
+                </select>
+
+                <div *ngIf="markPc.invalid && markPc.dirty || formValid==true">
+                    <span *ngIf="markPc.errors?.required">Este campo es requerido</span>
+                </div>
+            </div>
+        </div>
+
+        <button (click)="savePoll();" type="submit" class="btn btn-primary  mt-2">Guardar</button>
+
+    </form>
+</div>

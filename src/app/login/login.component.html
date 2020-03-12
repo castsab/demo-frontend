@@ -1,0 +1,44 @@
+<div class="container-fluid main-container">
+
+    <div class="row justify-content-center">
+      <div class="col-sm-5">
+  
+        <form class="myform white-container" [formGroup]="myform">
+  
+          <h2 class="form-signin-heading">Login</h2>
+  
+          <div>
+            <label for="email" class="sr-only">Usuario</label>
+            <input type="email" id="email" class="form-control" placeholder="Usuario" formControlName="email">
+  
+            <div class="alert alert-danger" role="alert" *ngIf="email.invalid && email.dirty || formValid==true">
+              <span *ngIf="email.errors.required">Este campo es requerido</span>
+              <span *ngIf="email.errors.pattern">Correo electronico no valido</span>
+            </div>
+          </div>
+  
+          <div class="mt-1 password-field">
+            <label for="password" class="sr-only">Clave</label>
+            <input type="password" id="password" class="form-control" placeholder="Clave" formControlName="password">
+  
+            <div class="alert alert-danger" role="alert" *ngIf="password.invalid && password.dirty || formValid==true">
+              <span *ngIf="password.errors.required">Este campo es requerido</span>
+              <span *ngIf="password.errors.minlength">Password must be 8 characters long</span>
+            </div>
+          </div>
+  
+          <div class="mt-1">
+            <button (click)="login();" class="btn btn-lg btn-primary btn-block" type="button">Ingrese</button>
+          </div>
+  
+          <div class="alert alert-danger mt-1" role="alert" *ngIf="isUserExists==false">
+            <span>Usted a digitado su usuario o contraseña de forma incorrecta</span>
+          </div>
+  
+        </form>
+  
+      </div>
+    </div>
+  
+  </div>
+  <!-- /container -->
